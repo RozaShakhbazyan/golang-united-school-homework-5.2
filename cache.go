@@ -13,7 +13,7 @@ func NewCache(key string,
 	value string,
 	expValue string,
 	deadline time.Time,
-	expired bool) Cache {
+) Cache {
 	return Cache{key: key, value: value, expValue: expValue, deadline: deadline}
 }
 
