@@ -8,6 +8,8 @@ type Cache struct {
 	deadline time.Time
 }
 
+var keys []string
+
 func NewCache() Cache {
 	return Cache{}
 }
@@ -25,21 +27,21 @@ func (cache *Cache) Put(key, value string) {
 	if cache.key == key {
 		cache.value = value
 
-		return
 	} else {
 		cache.key = key
 		cache.value = value
 		*cache = NewCache()
 	}
+	keys = append(keys, cache.key)
 
 }
 
 func (cache *Cache) Keys() []string {
-	var keys []string
+
 	if cache.deadline.After(time.Now()) {
 		keys = append(keys, cache.key)
 	}
-	return []string{}
+	return keys
 }
 
 func (cache *Cache) PutTill(key, value string, deadline time.Time) {
