@@ -13,10 +13,11 @@ func NewCache() Cache {
 }
 
 func (cache Cache) Get(key string) (string, bool) {
-	if cache.key == key && cache.deadline.After(time.Now()) {
+	if cache.key == key {
 		return cache.value, true
+	} else {
+		return "", false
 	}
-	return "", false
 
 }
 
