@@ -3,18 +3,14 @@ package cache
 import "time"
 
 type Cache struct {
-	key      string
-	value    string
+	key   string
+	value string
 
 	deadline time.Time
 }
 
-func NewCache(key string,
-	value string,
-
-	deadline time.Time,
-) Cache {
-	return Cache{key: key, value: value,  deadline: deadline}
+func   NewCache() Cache {
+	return Cache{}
 }
 
 func (cache Cache) Get(key string) (string, bool) {
