@@ -5,16 +5,16 @@ import "time"
 type Cache struct {
 	key      string
 	value    string
-	expValue string
+
 	deadline time.Time
 }
 
 func NewCache(key string,
 	value string,
-	expValue string,
+
 	deadline time.Time,
 ) Cache {
-	return Cache{key: key, value: value, expValue: expValue, deadline: deadline}
+	return Cache{key: key, value: value,  deadline: deadline}
 }
 
 func (cache Cache) Get(key string) (string, bool) {
